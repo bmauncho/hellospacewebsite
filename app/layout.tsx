@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import ClientLayout from "./client-layout";
 
-const inter = Inter({ subsets: ["latin"] });
-console.log("inter", inter);
 export const metadata: Metadata = {
   title: "Hello Space – Innovative Interior Design & Quality Furniture",
   description:
@@ -12,12 +10,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }
