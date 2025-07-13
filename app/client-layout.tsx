@@ -1,6 +1,7 @@
 "use client";
 
 import LoadingScreen from "@/components/loadingScreen";
+import { SiteHeader } from "@/components/site-header";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 const LOADING_DURATIONS = {
@@ -72,7 +73,10 @@ export default function ClientLayout({
   return (
     <div className="min-h-screen bg-[#ffffff] text-[#171717] antialiased">
       <LoadingScreen isLoading={isLoading} />
-      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SiteHeader />
+        {children}
+      </Suspense>
     </div>
   );
 }
