@@ -4,6 +4,18 @@ import LoadingScreen from "@/components/loadingScreen";
 import { SiteHeader } from "@/components/site-header";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
+import { Inter, Playfair_Display } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+});
+
 const LOADING_DURATIONS = {
   // Initial page load
   initial: 2500,
@@ -71,7 +83,9 @@ export default function ClientLayout({
   }, [pathname, searchParams, hasVisitedBefore]);
 
   return (
-    <div className="min-h-screen bg-[#ffffff] text-[#171717] antialiased">
+    <div
+      className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-[#ffffff] text-[#171717]`}
+    >
       <LoadingScreen isLoading={isLoading} />
       <Suspense fallback={<div>Loading...</div>}>
         <SiteHeader />
