@@ -24,7 +24,7 @@ export function AccentHeading({
     >
       <div
         className={cn(
-          "absolute bg-[#C9986F]",
+          "absolute bg-[#C17C60]",
           accentPosition === "bottom"
             ? "bottom-0 left-0 h-1 w-16"
             : "left-0 top-1/2 h-full w-1 -translate-y-1/2 transform"

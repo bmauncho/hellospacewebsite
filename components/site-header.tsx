@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/app/ui/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,7 +42,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
-          <Button asChild variant="ghost" size ="lg" className="">
+          <Button asChild variant="ghost" size="lg" className="">
             <Link href="/Consultation">Book Consultation</Link>
           </Button>
         </div>
