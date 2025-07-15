@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/app/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,11 +42,9 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
-          <Link href="/Consultation">
-            <button className="hidden md:flex rounded-xl bg-[#f8f5f2] px-4 py-2 transition-colors hover:bg-[#6b6963] hover:text-white ">
-              Book Consultation
-            </button>
-          </Link>
+          <Button asChild variant="ghost" size ="lg" className="">
+            <Link href="/Consultation">Book Consultation</Link>
+          </Button>
         </div>
       </div>
     </div>
