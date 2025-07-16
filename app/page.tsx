@@ -1,3 +1,5 @@
+import { Consultations } from "@/components/consultations";
+import { ExplorePortfolio } from "@/components/explore-portfolio";
 import { Team } from "@/components/hellospaceteam";
 import { Hero } from "@/components/hero";
 import { Innovate } from "@/components/innovate";
@@ -11,6 +13,8 @@ export default function Home() {
         <Innovate />
         <Team />
         <OurServices />
+        <Consultations />
+        <ExplorePortfolio />
       </main>
     </div>
   );
