@@ -19,7 +19,7 @@ const projects = [
     description:
       "A clean, contemporary living space with sustainable furniture and natural light.",
     category: "Residential",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/Explore/modern-living-room.png",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const projects = [
     description:
       "A serene bedroom design featuring neutral tones and functional storage solutions.",
     category: "Residential",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/Explore/scandinavian-bedroom.png",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const projects = [
     description:
       "A collaborative workspace designed to inspire creativity and productivity.",
     category: "Commercial",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/Explore/modern-living-room.png",
     featured: true,
   },
   {
@@ -44,7 +44,7 @@ const projects = [
     description:
       "An industrial-inspired kitchen with modern appliances and custom cabinetry.",
     category: "Residential",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/Explore/scandinavian-bedroom.png",
   },
 ];
 
@@ -64,7 +64,7 @@ export function ProjectGallery() {
             >
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -91,7 +91,7 @@ export function ProjectGallery() {
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
                   <Image
-                    src={selectedProject.image || "/placeholder.svg"}
+                    src={selectedProject.image}
                     alt={selectedProject.title}
                     fill
                     className="object-cover"

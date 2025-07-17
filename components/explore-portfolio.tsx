@@ -29,7 +29,7 @@ export function ExplorePortfolio() {
             <ProjectGallery />
           </div>
           <div className="mt-8 text-center">
-            <Button asChild variant="ghost" size="lg" className="shadow-lg">
+            <Button asChild variant="accent">
               <Link href="/portfolio">View All Projects</Link>
             </Button>
           </div>

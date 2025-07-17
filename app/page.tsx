@@ -1,9 +1,13 @@
 import { Consultations } from "@/components/consultations";
+import { CuratedFurniture } from "@/components/curated-furniture";
 import { ExplorePortfolio } from "@/components/explore-portfolio";
+import { Footer } from "@/components/footer";
 import { Team } from "@/components/hellospaceteam";
 import { Hero } from "@/components/hero";
 import { Innovate } from "@/components/innovate";
+import { LetsWorkTogether } from "@/components/lets-work-together";
 import { OurServices } from "@/components/our-services";
+import { Testimonials } from "@/components/testimonials";
 
 export default function Home() {
   return (
@@ -15,7 +19,11 @@ export default function Home() {
         <OurServices />
         <Consultations />
         <ExplorePortfolio />
+        <CuratedFurniture />
+        <Testimonials />
+        <LetsWorkTogether />
       </main>
+      <Footer />
     </div>
   );
 }
