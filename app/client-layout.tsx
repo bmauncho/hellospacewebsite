@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { Inter, Playfair_Display } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -83,14 +84,21 @@ export default function ClientLayout({
   }, [pathname, searchParams, hasVisitedBefore]);
 
   return (
-    <div
-      className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-[#ffffff] text-[#171717]`}
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem
+      disableTransitionOnChange
     >
-      <LoadingScreen isLoading={isLoading} />
-      <Suspense fallback={<div>Loading...</div>}>
-        <SiteHeader />
-        {children}
-      </Suspense>
-    </div>
+      <div
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-[#ffffff] text-[#171717]`}
+      >
+        <LoadingScreen isLoading={isLoading} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <SiteHeader />
+          {children}
+        </Suspense>
+      </div>
+    </ThemeProvider>
   );
 }
