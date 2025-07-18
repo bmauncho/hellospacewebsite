@@ -5,9 +5,33 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { MobileMenuButton } from "./mobile-menu-button";
+import { MobileMenu } from "./mobile-menu";
 
 export function SiteHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const menuItems = [
     { href: "/About", label: "About" },
@@ -16,7 +40,7 @@ export function SiteHeader() {
     { href: "/Contact", label: "Contact" },
   ];
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-[#e2ded9] bg-[#f8f5f2]/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-[#e2ded9] bg-[#f8f5f2]/80 backdrop-blur-sm">
       <div className="container p-2 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
@@ -44,8 +68,33 @@ export function SiteHeader() {
           <Button asChild variant="ghost" size="lg" className="">
             <Link href="/Consultation">Book Consultation</Link>
           </Button>
+          <div className="md:hidden">
+            <MobileMenuButton
+              isOpen={isMenuOpen}
+              onClick={toggleMenu}
+              className="text-[#6b6963]"
+            />
+          </div>
         </div>
       </div>
-    </div>
+      {/* Mobile menu overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden",
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setIsMenuOpen(false)}
+        aria-hidden="true"
+      />
+      {/* Mobile menu */}
+      <div>
+        <MobileMenu
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          menuItems={menuItems}
+          pathname={pathname}
+        />
+      </div>
+    </header>
   );
 }
