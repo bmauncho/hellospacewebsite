@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayout from "./client-layout";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Hello Space – Innovative Interior Design & Quality Furniture",
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ClientLayout>{children}</ClientLayout>
+        <Footer />
       </body>
     </html>
   );

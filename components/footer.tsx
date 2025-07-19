@@ -33,7 +33,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link
-                  href="/services"
+                  href="/Services"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Interior Design Consultation
@@ -41,7 +41,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/Services"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Furniture Selection
@@ -49,7 +49,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/Services"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Space Planning
@@ -57,7 +57,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/Services"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Project Management
@@ -72,7 +72,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link
-                  href="/about"
+                  href="/About"
                   className="transition-colors hover:text-brand-accent"
                 >
                   About Us
@@ -80,7 +80,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/Portfolio"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Portfolio
@@ -88,7 +88,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/shop"
+                  href="/Shop"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Shop
@@ -96,7 +96,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/Contact"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Contact
@@ -117,6 +117,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-6 text-center text-sm text-muted-foreground">
           <div className="flex justify-center space-x-6 mb-4">
+            {/* instagram */}
             <Link
               href="#"
               className="text-muted-foreground hover:text-brand-accent transition-colors"
@@ -139,6 +140,7 @@ export function Footer() {
               </svg>
               <span className="sr-only">Instagram</span>
             </Link>
+            {/* facebook */}
             <Link
               href="#"
               className="text-muted-foreground hover:text-brand-accent transition-colors"
@@ -159,6 +161,7 @@ export function Footer() {
               </svg>
               <span className="sr-only">Facebook</span>
             </Link>
+            {/* twitter */}
             <Link
               href="#"
               className="text-muted-foreground hover:text-brand-accent transition-colors"

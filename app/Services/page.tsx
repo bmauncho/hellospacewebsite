@@ -123,7 +123,7 @@ export default function ServicesPage() {
                         asChild
                         className="w-full bg-[#a8a49e] text-white hover:bg-[#8c8880]"
                       >
-                        <Link href="/consultation">Book Consultation</Link>
+                        <Link href="/Consultation">Book Consultation</Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -181,7 +181,7 @@ export default function ServicesPage() {
                         asChild
                         className="w-full bg-[#a8a49e] text-white hover:bg-[#8c8880]"
                       >
-                        <Link href="/consultation">Learn More</Link>
+                        <Link href="/Consultation">Learn More</Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -241,7 +241,7 @@ export default function ServicesPage() {
                         asChild
                         className="w-full bg-[#a8a49e] text-white hover:bg-[#8c8880]"
                       >
-                        <Link href="/shop">Shop Furniture</Link>
+                        <Link href="/Shop">Shop Furniture</Link>
                       </Button>
                     </div>
                   </CardContent>

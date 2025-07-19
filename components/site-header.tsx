@@ -38,6 +38,7 @@ export function SiteHeader() {
     { href: "/Services", label: "Services" },
     { href: "/Portfolio", label: "Portfolio" },
     { href: "/Contact", label: "Contact" },
+    { href: "/Shop", label: "Shop" },
   ];
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e2ded9] bg-[#f8f5f2]/80 backdrop-blur-sm">

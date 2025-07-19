@@ -7,6 +7,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Inter, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { WishlistProvider } from "@/contexts/wishlist-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,16 +92,18 @@ export default function ClientLayout({
       enableSystem
       disableTransitionOnChange
     >
-      <div
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
-      >
-        <LoadingScreen isLoading={isLoading} />
-        <Suspense fallback={<div>Loading...</div>}>
-          <SiteHeader />
-          {children}
-        </Suspense>
-        <Toaster />
-      </div>
+      <WishlistProvider>
+        <div
+          className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
+        >
+          <LoadingScreen isLoading={isLoading} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <SiteHeader />
+            {children}
+          </Suspense>
+          <Toaster />
+        </div>
+      </WishlistProvider>
     </ThemeProvider>
   );
 }

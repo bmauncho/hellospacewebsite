@@ -1,7 +1,6 @@
 import { Consultations } from "@/components/consultations";
 import { CuratedFurniture } from "@/components/curated-furniture";
 import { ExplorePortfolio } from "@/components/explore-portfolio";
-import { Footer } from "@/components/footer";
 import { Team } from "@/components/hellospaceteam";
 import { Hero } from "@/components/hero";
 import { Innovate } from "@/components/innovate";
@@ -23,7 +22,6 @@ export default function Home() {
         <Testimonials />
         <LetsWorkTogether />
       </main>
-      <Footer />
     </div>
   );
 }
