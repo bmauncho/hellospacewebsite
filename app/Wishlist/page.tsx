@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: "View and manage your saved items",
 };
 
-export function WishListPage() {
+export default function WishListPage() {
   return <WishlistClient />;
 }

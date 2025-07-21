@@ -24,14 +24,14 @@ export function Hero() {
             furniture.
           </p>
           <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-            <Button asChild variant="default" size="lg" className="shadow-lg">
+            <Button asChild variant="accent" size="lg" className="shadow-lg">
               <Link href="/Consultation">Book a Consultation</Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white bg-black/30 hover:bg-white/10"
+              className="border-white text-white bg-brand-accent/30 "
             >
               <Link href="/Portfolio">View Our Portfolio</Link>
             </Button>

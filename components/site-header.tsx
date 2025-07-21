@@ -8,10 +8,14 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MobileMenuButton } from "./mobile-menu-button";
 import { MobileMenu } from "./mobile-menu";
+import { Heart } from "lucide-react";
+import { useWishlist } from "@/contexts/wishlist-context";
+import { CartDrawer } from "./cart/cart-drawer";
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { itemCount: wishlistCount } = useWishlist();
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -66,7 +70,23 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
-          <Button asChild variant="ghost" size="lg" className="">
+          <Link href="/Wishlist" className="relative">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-[#6b6963] hover:text-[#3c3a36]"
+              aria-label="Wishlist"
+            >
+              <Heart className="h-5 w-5" />
+              {wishlistCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#c17c60] text-xs font-medium text-white">
+                  {wishlistCount}
+                </span>
+              )}
+            </Button>
+          </Link>
+          <CartDrawer />
+          <Button asChild variant="accent" size="lg" className="hidden md:flex">
             <Link href="/Consultation">Book Consultation</Link>
           </Button>
           <div className="md:hidden">

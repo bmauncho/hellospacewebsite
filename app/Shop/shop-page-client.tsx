@@ -306,7 +306,7 @@ export default function ShopPageClient() {
     <div className="bg-[#f8f5f2]">
       <header className="relative h-[50vh] w-full overflow-hidden">
         <Image
-          src="/placeholder.svg?height=800&width=1600"
+          src="/hero/hello-space-hero.png?height=800&width=1600"
           alt="Hello Space furniture collection"
           fill
           className="object-cover"

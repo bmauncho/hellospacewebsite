@@ -118,7 +118,7 @@ export default function AboutPage() {
                   </p>
                   <div className="pt-4">
                     <Link
-                      href="/shop"
+                      href="/Shop"
                       className="group inline-flex items-center text-sm font-medium text-[#3c3a36]"
                     >
                       Explore Our Furniture
@@ -166,7 +166,7 @@ export default function AboutPage() {
                     variant="ghost"
                     className="shadow-lg"
                   >
-                    <Link href="/consultation">Book a Consultation</Link>
+                    <Link href="/Consultation">Book a Consultation</Link>
                   </Button>
                 </div>
               </div>

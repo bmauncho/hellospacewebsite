@@ -131,7 +131,7 @@ export default function WishlistClient() {
                 asChild
                 className="bg-[#a8a49e] text-white hover:bg-[#8c8880]"
               >
-                <Link href="/shop">Browse Products</Link>
+                <Link href="/Shop">Browse Products</Link>
               </Button>
             </div>
           ) : (
@@ -162,7 +162,7 @@ export default function WishlistClient() {
                     </div>
 
                     <Link
-                      href={`/shop/${item.slug}`}
+                      href={`/Shop/${item.slug}`}
                       className="block overflow-hidden rounded-md"
                     >
                       <Image
@@ -177,7 +177,7 @@ export default function WishlistClient() {
                     </Link>
 
                     <div className="p-4">
-                      <Link href={`/shop/${item.slug}`}>
+                      <Link href={`/Shop/${item.slug}`}>
                         <h3 className="mb-1 font-medium text-[#3c3a36] line-clamp-1">
                           {item.name}
                         </h3>
