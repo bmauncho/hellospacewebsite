@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useAuth } from "@/contexts/auth-context";
 type MenuItem = {
   label: string;
   href: string;
@@ -13,13 +14,17 @@ type MobileMenuProps = {
   setIsMenuOpen: (value: boolean) => void;
   menuItems: MenuItem[];
   pathname: string;
+  isShopRelatedPage: boolean;
 };
 export function MobileMenu({
   isMenuOpen,
   setIsMenuOpen,
   menuItems,
   pathname,
+  isShopRelatedPage,
 }: MobileMenuProps) {
+
+  const { user} = useAuth();
   return (
     <div
       className={cn(
@@ -82,6 +87,27 @@ export function MobileMenu({
               </Link>
             </li>
           ))}
+          {!user && isShopRelatedPage && (
+            <li
+              className={cn(
+                "transform transition-all duration-300 ease-in-out",
+                isMenuOpen
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-8 opacity-0"
+              )}
+              style={{
+                transitionDelay: `${150 + (menuItems.length + 1) * 50}ms`,
+              }}
+            >
+              <Link
+                href="/auth/sign-in"
+                className="text-lg font-medium text-[#6b6963] transition-colors hover:text-[#3c3a36]"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign In
+              </Link>
+            </li>
+          )}
           <li
             className={cn(
               "transform transition-all duration-300 ease-in-out pt-4",

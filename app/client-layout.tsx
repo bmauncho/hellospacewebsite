@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { WishlistProvider } from "@/contexts/wishlist-context";
 import { CartProvider } from "@/contexts/cart-context";
+import { AuthProvider } from "@/contexts/auth-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -93,20 +94,22 @@ export default function ClientLayout({
       enableSystem
       disableTransitionOnChange
     >
-      <CartProvider>
-        <WishlistProvider>
-          <div
-            className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
-          >
-            <LoadingScreen isLoading={isLoading} />
-            <Suspense fallback={<div>Loading...</div>}>
-              <SiteHeader />
-              {children}
-            </Suspense>
-            <Toaster />
-          </div>
-        </WishlistProvider>
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <div
+              className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
+            >
+              <LoadingScreen isLoading={isLoading} />
+              <Suspense fallback={<div>Loading...</div>}>
+                <SiteHeader />
+                {children}
+              </Suspense>
+              <Toaster />
+            </div>
+          </WishlistProvider>
+        </CartProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

@@ -8,13 +8,22 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MobileMenuButton } from "./mobile-menu-button";
 import { MobileMenu } from "./mobile-menu";
-import { Heart } from "lucide-react";
+import { Heart, LogOut, User } from "lucide-react";
 import { useWishlist } from "@/contexts/wishlist-context";
 import { CartDrawer } from "./cart/cart-drawer";
+import { useAuth } from "@/contexts/auth-context";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { user, signOut } = useAuth();
   const { itemCount: wishlistCount } = useWishlist();
 
   useEffect(() => {
@@ -44,6 +53,16 @@ export function SiteHeader() {
     { href: "/Contact", label: "Contact" },
     { href: "/Shop", label: "Shop" },
   ];
+
+  const isShopRelatedPage = () => {
+    return (
+      pathname?.startsWith("/Shop") ||
+      pathname?.startsWith("/Wishlist") ||
+      pathname?.startsWith("/checkout") ||
+      pathname?.startsWith("/account") ||
+      pathname?.startsWith("/auth")
+    );
+  };
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e2ded9] bg-[#f8f5f2]/80 backdrop-blur-sm">
       <div className="container p-2 flex h-16 items-center justify-between">
@@ -70,6 +89,66 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  aria-label="User menu"
+                >
+                  <User className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <div className="flex items-center justify-start gap-2 p-2">
+                  <div className="flex flex-col space-y-1 leading-none">
+                    {user.name && <p className="font-medium">{user.name}</p>}
+                    {user.email && (
+                      <p className="w-[200px] truncate text-sm text-muted-foreground">
+                        {user.email}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/account">Account</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/account/orders">Orders</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/wishlist">Wishlist</Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  onSelect={(event) => {
+                    event.preventDefault();
+                    signOut();
+                  }}
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Sign out</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <>
+              {!user && isShopRelatedPage() ? (
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="hidden md:flex"
+                >
+                  <Link href="/auth/sign-in">Sign In</Link>
+                </Button>
+              ) : null}
+            </>
+          )}
           <Link href="/Wishlist" className="relative">
             <Button
               variant="ghost"
@@ -114,6 +193,7 @@ export function SiteHeader() {
           setIsMenuOpen={setIsMenuOpen}
           menuItems={menuItems}
           pathname={pathname}
+          isShopRelatedPage={isShopRelatedPage()}
         />
       </div>
     </header>

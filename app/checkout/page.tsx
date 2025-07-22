@@ -1,11 +1,12 @@
-import type { Metadata } from "next"
-import { CheckoutForm } from "@/components/checkout/checkout-form"
-import { CheckoutSummary } from "@/components/checkout/checkout-summary"
+import type { Metadata } from "next";
+import { CheckoutForm } from "@/components/checkout/checkout-form";
+import { CheckoutSummary } from "@/components/checkout/checkout-summary";
+import { ProtectedRoute } from "@/components/auth/protected-route";
 
 export const metadata: Metadata = {
   title: "Checkout - Hello Space",
   description: "Complete your purchase from Hello Space.",
-}
+};
 
 export default function CheckoutPage() {
   return (
@@ -14,14 +15,16 @@ export default function CheckoutPage() {
         <h1 className="mb-8 font-serif text-3xl font-medium text-[#3c3a36]">
           Checkout
         </h1>
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <CheckoutForm />
+        <ProtectedRoute>
+          <div className="grid gap-8 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+              <CheckoutForm />
+            </div>
+            <div>
+              <CheckoutSummary />
+            </div>
           </div>
-          <div>
-            <CheckoutSummary />
-          </div>
-        </div>
+        </ProtectedRoute>
       </div>
     </div>
   );
