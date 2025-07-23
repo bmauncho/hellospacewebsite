@@ -6,7 +6,7 @@ import { AccentDivider } from "@/components/accent-divider";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background py-12">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">

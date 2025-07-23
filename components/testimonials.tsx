@@ -7,7 +7,7 @@ export function Testimonials() {
     <FadeIn>
       <section className="py-16 md:py-24 relative">
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#e9e5e0] to-transparent" />
-        <div className="container px-4 md:px-6 relative">
+        <div className="container mx-auto px-4 md:px-6 relative">
           <div className="mx-auto max-w-3xl text-center">
             <AccentHeading
               as="h2"

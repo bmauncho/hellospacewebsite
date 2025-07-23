@@ -24,7 +24,7 @@ export default function ServicesPage() {
           priority
         />
         <div className="absolute inset-0 bg-black/30">
-          <div className="container flex h-full flex-col items-center justify-center px-4 text-center text-white md:px-6">
+          <div className="container mx-auto flex h-full flex-col items-center justify-center px-4 text-center text-white md:px-6">
             <h1 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">
               Transform Your Home with Expert Interior Design
             </h1>
@@ -35,7 +35,7 @@ export default function ServicesPage() {
       <main>
         <FadeIn>
           <section className="py-16 md:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="mx-auto max-w-3xl">
                 <p className="text-lg text-[#6b6963]">
                   Our interior design consultation services are crafted to offer
@@ -53,7 +53,7 @@ export default function ServicesPage() {
 
         <FadeIn>
           <section className="bg-[#e9e5e0] py-16 md:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="mx-auto max-w-3xl text-center">
                 <h2 className="font-serif text-3xl font-medium tracking-tight text-[#3c3a36] sm:text-4xl">
                   Our Services
@@ -69,7 +69,7 @@ export default function ServicesPage() {
 
         <FadeIn>
           <section className="py-16 md:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <Card className="border-[#e2ded9] bg-white">
                   <CardContent className="p-6">
@@ -253,7 +253,7 @@ export default function ServicesPage() {
 
         <FadeIn>
           <section className="bg-[#e9e5e0] py-16 md:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="grid gap-12 md:grid-cols-2 md:items-center">
                 <div className="relative aspect-video overflow-hidden rounded-lg">
                   <Image
@@ -338,7 +338,7 @@ export default function ServicesPage() {
 
         <FadeIn>
           <section className="py-16 md:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="mx-auto max-w-3xl text-center">
                 <h2 className="font-serif text-3xl font-medium tracking-tight text-[#3c3a36] sm:text-4xl">
                   Book Your Free Design Consultation Today!

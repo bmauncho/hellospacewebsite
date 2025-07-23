@@ -9,7 +9,7 @@ export default function AccountLayout({
 }) {
   return (
     <ProtectedRoute>
-      <div className="container py-10">
+      <div className="container mx-auto py-10">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="w-full md:w-64 shrink-0">
             <AccountSidebar />

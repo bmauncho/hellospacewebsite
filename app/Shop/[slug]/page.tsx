@@ -70,7 +70,7 @@ export default function ProductPage({
 
   return (
     <div className="bg-[#f8f5f2]">
-      <div className="container px-4 py-8 md:px-6 md:py-12">
+      <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
         <div className="mb-6">
           <Link
             href="/shop"

@@ -8,7 +8,7 @@ export function Team() {
   return (
     <FadeIn>
       <section className="bg-[#e9e5e0] py-16 md:py-24">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div className="space-y-4">
               <AccentHeading

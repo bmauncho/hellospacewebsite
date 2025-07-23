@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <header className="relative h-screen w-full overflow-hidden">
+    <>
       <Image
         src="/hero/hello-space-hero.png"
         alt="hello space hero image"
@@ -13,7 +13,7 @@ export function Hero() {
         priority
       />
       <div className="absolute inset-0 bg-black/30 dark:bg-black/50">
-        <div className="flex h-full w-full flex-col items-center justify-center px-4 text-center text-white md:px-6 max-w-5xl mx-auto">
+        <div className="container mx-auto flex h-full flex-col items-center justify-center px-4 text-center text-white md:px-6">
           <h1 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
             Where Design Meets Functionality
           </h1>
@@ -38,6 +38,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

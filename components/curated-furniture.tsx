@@ -9,7 +9,7 @@ export function CuratedFurniture() {
   return (
     <FadeIn>
       <section className="bg-[#e9e5e0] py-16 md:py-24">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <AccentHeading
               as="h2"

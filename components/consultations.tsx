@@ -9,7 +9,7 @@ export function Consultations() {
       <section className="bg-[#3c3a36] py-16 text-white md:py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent opacity-10 rounded-bl-full" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-accent opacity-10 rounded-tr-full" />
-        <div className="container px-4 md:px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">
               Transform Your Home with Expert Interior Design

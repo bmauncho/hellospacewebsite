@@ -8,7 +8,7 @@ export function LetsWorkTogether() {
     <FadeIn>
       <section className="bg-[#3c3a36] py-16 text-white md:py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent opacity-10 rounded-bl-full" />
-        <div className="container px-4 md:px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-4">
               <AccentHeading

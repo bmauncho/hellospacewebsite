@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function CheckoutPage() {
   return (
     <div className="bg-[#f8f5f2] py-12">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <h1 className="mb-8 font-serif text-3xl font-medium text-[#3c3a36]">
           Checkout
         </h1>

@@ -22,7 +22,7 @@ export default function OrderConfirmationPage() {
 
   return (
     <div className="bg-[#f8f5f2] py-12">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-2xl rounded-lg border border-[#e2ded9] bg-white p-8 text-center">
           <div className="mb-6 flex justify-center">
             <div className="rounded-full bg-[#e9e5e0] p-3">
