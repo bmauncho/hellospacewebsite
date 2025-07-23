@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
+import { subscribeToNewsletter } from "@/app/actions/newsletter-email";
 
 interface NewsletterFormProps {
   className?: string;
@@ -20,30 +21,28 @@ export function NewsletterForm({ className }: NewsletterFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic email validation
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsLoading(true);
+    const formData = new FormData();
+    formData.append("email", email);
 
-    // Simulate API call
     try {
-      // In a real implementation, this would be an API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const result = await subscribeToNewsletter(formData);
 
-      setIsSubmitted(true);
-      toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter.",
-      });
-    } catch (error) {
-      console.error("Subscription error:", error);
+      if (result.success) {
+        setIsSubmitted(true);
+        toast({
+          title: "Success!",
+          description: "Thank you for subscribing to our newsletter.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (err) {
+      console.error(err);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
@@ -82,8 +81,9 @@ export function NewsletterForm({ className }: NewsletterFormProps) {
               type="email"
               placeholder="Enter your email"
               value={email}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
               required
               className="border-[#e2ded9] bg-white focus:border-brand-accent focus:ring-brand-accent"
               disabled={isLoading}
