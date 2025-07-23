@@ -166,7 +166,7 @@ export default function PortfolioPage() {
                     variant="ghost"
                     className="shadow-lg"
                   >
-                    <Link href="/consultation">Book a Consultation</Link>
+                    <Link href="/Consultation">Book a Consultation</Link>
                   </Button>
                 </div>
               </div>

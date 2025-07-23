@@ -1,52 +1,57 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { Eye, EyeOff, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useToast } from "@/components/ui/use-toast"
-import { useAuth } from "@/contexts/auth-context"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/contexts/auth-context";
 
 export function SignInForm() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const { signIn } = useAuth()
-  const { toast } = useToast()
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { signIn } = useAuth();
+  const { toast } = useToast();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
     try {
-      await signIn(email, password)
+      await signIn(email, password);
       toast({
         title: "Welcome back!",
         description: "You have successfully signed in.",
-      })
-      router.push("/shop")
+      });
+      router.push("/Shop");
     } catch (error) {
+      console.error("Sign in error:", error);
       toast({
         title: "Sign in failed",
         description: "Please check your credentials and try again.",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="mx-auto max-w-md space-y-6 p-6 bg-white rounded-lg border border-[#e2ded9]">
       <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-serif font-medium tracking-tight text-[#3c3a36]">Sign In</h1>
-        <p className="text-sm text-[#6b6963]">Enter your credentials to access your account</p>
+        <h1 className="text-3xl font-serif font-medium tracking-tight text-[#3c3a36]">
+          Sign In
+        </h1>
+        <p className="text-sm text-[#6b6963]">
+          Enter your credentials to access your account
+        </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
@@ -66,10 +71,16 @@ export function SignInForm() {
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <label htmlFor="password" className="text-sm font-medium text-[#3c3a36]">
+            <label
+              htmlFor="password"
+              className="text-sm font-medium text-[#3c3a36]"
+            >
               Password
             </label>
-            <Link href="/auth/forgot-password" className="text-xs text-brand-accent hover:underline">
+            <Link
+              href="/auth/forgot-password"
+              className="text-xs text-brand-accent hover:underline"
+            >
               Forgot password?
             </Link>
           </div>
@@ -112,11 +123,14 @@ export function SignInForm() {
       <div className="text-center text-sm">
         <p className="text-[#6b6963]">
           Don&apos;t have an account?{" "}
-          <Link href="/auth/sign-up" className="text-brand-accent hover:underline">
+          <Link
+            href="/auth/sign-up"
+            className="text-brand-accent hover:underline"
+          >
             Sign up
           </Link>
         </p>
       </div>
     </div>
-  )
+  );
 }

@@ -89,7 +89,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
-          {user ? (
+          {user && isShopRelatedPage() ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -120,7 +120,7 @@ export function SiteHeader() {
                   <Link href="/account/orders">Orders</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/wishlist">Wishlist</Link>
+                  <Link href="/Wishlist">Wishlist</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -149,22 +149,26 @@ export function SiteHeader() {
               ) : null}
             </>
           )}
-          <Link href="/Wishlist" className="relative">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-[#6b6963] hover:text-[#3c3a36]"
-              aria-label="Wishlist"
-            >
-              <Heart className="h-5 w-5" />
-              {wishlistCount > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#c17c60] text-xs font-medium text-white">
-                  {wishlistCount}
-                </span>
-              )}
-            </Button>
-          </Link>
-          <CartDrawer />
+          {isShopRelatedPage() && (
+            <>
+              <Link href="/Wishlist" className="relative">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-[#6b6963] hover:text-[#3c3a36]"
+                  aria-label="Wishlist"
+                >
+                  <Heart className="h-5 w-5" />
+                  {wishlistCount > 0 && (
+                    <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#c17c60] text-xs font-medium text-white">
+                      {wishlistCount}
+                    </span>
+                  )}
+                </Button>
+              </Link>
+              <CartDrawer />
+            </>
+          )}
           <Button asChild variant="accent" size="lg" className="hidden md:flex">
             <Link href="/Consultation">Book Consultation</Link>
           </Button>

@@ -1,19 +1,29 @@
-"use client"
+"use client";
 
-import { useAuth } from "@/contexts/auth-context"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { Package, Heart, CreditCard, Settings } from "lucide-react"
+import { useAuth } from "@/contexts/auth-context";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Package, Heart, CreditCard, Settings } from "lucide-react";
 
 export function AccountOverview() {
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-[#3c3a36]">Account Overview</h1>
-        <p className="text-[#6b6963] mt-1">Welcome back, {user?.name || "there"}!</p>
+        <h1 className="text-2xl font-semibold text-[#3c3a36]">
+          Account Overview
+        </h1>
+        <p className="text-[#6b6963] mt-1">
+          Welcome back, {user?.name || "there"}!
+        </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -44,7 +54,9 @@ export function AccountOverview() {
               <Heart className="h-5 w-5 text-[#c17c60]" />
               Wishlist
             </CardTitle>
-            <CardDescription>Products you&apos;ve saved for later</CardDescription>
+            <CardDescription>
+              Products you&apos;ve saved for later
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex justify-between items-center">
@@ -53,7 +65,7 @@ export function AccountOverview() {
                 <p className="text-sm text-[#6b6963]">Saved items</p>
               </div>
               <Button asChild variant="outline">
-                <Link href="/wishlist">View Wishlist</Link>
+                <Link href="/Wishlist">View Wishlist</Link>
               </Button>
             </div>
           </CardContent>
@@ -71,7 +83,9 @@ export function AccountOverview() {
             <div className="flex justify-between items-center">
               <div>
                 <p className="text-sm text-[#6b6963]">Payment methods</p>
-                <p className="text-sm text-[#6b6963] mt-1">Manage your cards and addresses</p>
+                <p className="text-sm text-[#6b6963] mt-1">
+                  Manage your cards and addresses
+                </p>
               </div>
               <Button asChild variant="outline">
                 <Link href="/account/billing">Manage</Link>
@@ -92,7 +106,9 @@ export function AccountOverview() {
             <div className="flex justify-between items-center">
               <div>
                 <p className="text-sm text-[#6b6963]">Profile settings</p>
-                <p className="text-sm text-[#6b6963] mt-1">Update your personal information</p>
+                <p className="text-sm text-[#6b6963] mt-1">
+                  Update your personal information
+                </p>
               </div>
               <Button asChild variant="outline">
                 <Link href="/account/settings">Edit</Link>
@@ -102,5 +118,5 @@ export function AccountOverview() {
         </Card>
       </div>
     </div>
-  )
+  );
 }

@@ -30,7 +30,7 @@ export function ExplorePortfolio() {
           </div>
           <div className="mt-8 text-center">
             <Button asChild variant="accent">
-              <Link href="/portfolio">View All Projects</Link>
+              <Link href="/Portfolio">View All Projects</Link>
             </Button>
           </div>
         </div>

@@ -111,7 +111,7 @@ export function ProjectGallery() {
                   </p>
                   <div className="pt-4">
                     <Link
-                      href={`/portfolio/${selectedProject.id}`}
+                      href={`/Portfolio/${selectedProject.id}`}
                       className="inline-flex items-center text-sm font-medium text-brand-accent hover:text-brand-accent/80"
                     >
                       View Project Details

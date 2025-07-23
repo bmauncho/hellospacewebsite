@@ -42,7 +42,7 @@ export function SignUpForm() {
         title: "Account created!",
         description: "You have successfully signed up.",
       });
-      router.push("/shop");
+      router.push("/Shop");
     } catch (error) {
       console.error("Sign up error:", error);
       toast({
