@@ -356,7 +356,7 @@ export default function ServicesPage() {
                     size="lg"
                     className="bg-[#a8a49e] text-white hover:bg-[#8c8880]"
                   >
-                    <Link href="/consultation">Schedule Your Consultation</Link>
+                    <Link href="/Consultation">Schedule Your Consultation</Link>
                   </Button>
                 </div>
               </div>
