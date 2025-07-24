@@ -1,6 +1,5 @@
-import { Calendar, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import FadeIn from "./fade-in";
-import { Button } from "./ui/button";
 import { AccentHeading } from "./accent-heading";
 import { MiniConsultationForm } from "./mini-consultation-form";
 

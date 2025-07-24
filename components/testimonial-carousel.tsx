@@ -134,14 +134,15 @@ export function TestimonialCarousel() {
       { threshold: 0.1 }
     );
 
-    if (carouselRef.current) {
-      observer.observe(carouselRef.current);
+    const currentCarousel = carouselRef.current;
+    if (currentCarousel) {
+      observer.observe(currentCarousel);
     }
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      if (carouselRef.current) {
-        observer.unobserve(carouselRef.current);
+      if (currentCarousel) {
+        observer.unobserve(currentCarousel);
       }
     };
   }, []);
