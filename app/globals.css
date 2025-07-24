@@ -46,6 +46,15 @@
 }
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
   :root {
     --background: #ffffff;
     --foreground: #090909;

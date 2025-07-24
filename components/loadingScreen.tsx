@@ -51,14 +51,15 @@ export default function LoadingScreen({
       style={{ opacity: visible && !fadeOut ? 1 : 0 }}
     >
       {/* hello space logo */}
-      <div className="relative flex flex-col items-center">
-        <div className="h-32 w-32 animate-pulse">
+      <div className="relative flex flex-col items-center px-4">
+        <div className="h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 animate-pulse">
           <Image
             src="/logo/hello-space-logo.png"
             alt="Hello Space Logo"
-            width={100}
-            height={100}
-            className="animate-pulse"
+            width={128}
+            height={128}
+            className="animate-pulse w-full h-full object-contain"
+            priority
           />
         </div>
       </div>

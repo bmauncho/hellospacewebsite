@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "Hello Space – Innovative Interior Design & Quality Furniture",
   description:
     "Discover Hello Space – your destination for expert interior design consultations, stylish furniture, and inspiring portfolios. Book your consultation today!",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
