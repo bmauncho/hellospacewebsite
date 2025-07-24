@@ -45,14 +45,38 @@ const pages: Record<string, number> = {
   "/Consultation": LOADING_DURATIONS.default,
 };
 
-//"use client";
+// Component that uses useSearchParams - needs to be wrapped in Suspense
+function SearchParamsHandler({ 
+  pathname, 
+  hasVisitedBefore, 
+  setIsLoading 
+}: { 
+  pathname: string;
+  hasVisitedBefore: boolean;
+  setIsLoading: (loading: boolean) => void;
+}) {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (hasVisitedBefore) {
+      setIsLoading(true);
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, pages[pathname] || LOADING_DURATIONS.default);
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, searchParams, hasVisitedBefore, setIsLoading]);
+
+  return null;
+}
+
+// "use client";
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const [isLoading, setIsLoading] = useState(true);
   const [hasVisitedBefore, setHasVisitedBefore] = useState(false);
@@ -77,16 +101,6 @@ export default function ClientLayout({
     return () => clearTimeout(timer);
   }, [hasVisitedBefore]);
 
-  useEffect(() => {
-    if (hasVisitedBefore) {
-      setIsLoading(true);
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, pages[pathname] || LOADING_DURATIONS.default);
-      return () => clearTimeout(timer);
-    }
-  }, [pathname, searchParams, hasVisitedBefore]);
-
   return (
     <ThemeProvider
       attribute="class"
@@ -102,6 +116,11 @@ export default function ClientLayout({
             >
               <LoadingScreen isLoading={isLoading} />
               <Suspense fallback={<div>Loading...</div>}>
+                <SearchParamsHandler 
+                  pathname={pathname}
+                  hasVisitedBefore={hasVisitedBefore}
+                  setIsLoading={setIsLoading}
+                />
                 <SiteHeader />
                 {children}
               </Suspense>
