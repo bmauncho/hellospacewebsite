@@ -73,7 +73,7 @@ export default function ProductPage({
       <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
         <div className="mb-6">
           <Link
-            href="/shop"
+            href="/Shop"
             className="inline-flex items-center text-sm font-medium text-[#6b6963] hover:text-[#3c3a36]"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />

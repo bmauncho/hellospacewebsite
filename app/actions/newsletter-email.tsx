@@ -127,7 +127,9 @@ export async function subscribeToNewsletter(formData: FormData) {
           can unsubscribe at any time.
         </p>
         <div style="text-align: center;">
-          <a href="${WEBSITE_URL || "#"}" class="button">Visit Our Website</a>
+          <a href="${
+            WEBSITE_URL || "#"
+          }" class="button text-white">Visit Our Website</a>
         </div>
       </div>
       <div class="footer">

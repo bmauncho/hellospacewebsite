@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // This would typically come from a database or CMS
 const relatedProducts = [
@@ -36,22 +36,22 @@ const relatedProducts = [
     image: "/placeholder.svg?height=600&width=600",
     category: "Dining",
   },
-]
+];
 
 export default function RelatedProducts() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -300, behavior: "smooth" })
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: "smooth" });
     }
-  }
+  };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 300, behavior: "smooth" })
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="relative">
@@ -73,7 +73,7 @@ export default function RelatedProducts() {
       >
         {relatedProducts.map((product) => (
           <div key={product.id} className="w-64 flex-shrink-0">
-            <Link href={`/shop/${product.id}`} className="group block">
+            <Link href={`/Shop/${product.id}`} className="group block">
               <div className="overflow-hidden rounded-lg bg-white">
                 <div className="relative aspect-square">
                   <Image
@@ -85,9 +85,15 @@ export default function RelatedProducts() {
                   />
                 </div>
                 <div className="p-4">
-                  <div className="text-xs text-[#6b6963]">{product.category}</div>
-                  <h3 className="mt-1 font-serif text-base font-medium text-[#3c3a36]">{product.name}</h3>
-                  <p className="mt-1 text-sm text-[#6b6963]">${product.price.toFixed(2)}</p>
+                  <div className="text-xs text-[#6b6963]">
+                    {product.category}
+                  </div>
+                  <h3 className="mt-1 font-serif text-base font-medium text-[#3c3a36]">
+                    {product.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-[#6b6963]">
+                    ${product.price.toFixed(2)}
+                  </p>
                 </div>
               </div>
             </Link>
@@ -106,5 +112,5 @@ export default function RelatedProducts() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

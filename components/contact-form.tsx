@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
 import { Textarea } from "./ui/textarea";
+import { sendContactMessage } from "@/app/actions/contact-email";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -29,39 +30,33 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing information",
-        description: "Please fill out all required fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsLoading(true);
 
-    // Simulate API call
     try {
-      // In a real implementation, this would be an API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const form = new FormData();
+      form.append("name", formData.name);
+      form.append("email", formData.email);
+      form.append("phone", formData.phone);
+      form.append("message", formData.message);
 
-      setIsSubmitted(true);
-      toast({
-        title: "Message sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
-      });
+      const result = await sendContactMessage(form);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        toast({
+          title: "Message sent!",
+          description:
+            "Thank you for contacting us. We'll get back to you soon.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
     } catch (error) {
-      console.error("Subscription error:", error);
+      console.error("Submission error:", error);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",

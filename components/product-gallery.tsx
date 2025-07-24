@@ -1,27 +1,35 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface ProductGalleryProps {
-  images: string[]
-  productName: string
+  images: string[];
+  productName: string;
 }
 
-export default function ProductGallery({ images, productName }: ProductGalleryProps) {
-  const [mainImage, setMainImage] = useState(0)
-  const [zoomImage, setZoomImage] = useState<string | null>(null)
+export default function ProductGallery({
+  images,
+  productName,
+}: ProductGalleryProps) {
+  const [mainImage, setMainImage] = useState(0);
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
 
   const nextImage = () => {
-    setMainImage((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
+    setMainImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   const prevImage = () => {
-    setMainImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
+    setMainImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
 
   return (
     <div className="space-y-4">
@@ -67,6 +75,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-3xl">
+            <DialogTitle className="sr-only">Zoomed Image</DialogTitle>
             <div className="relative aspect-square w-full overflow-hidden">
               <Image
                 src={zoomImage || images[mainImage]}
@@ -84,7 +93,9 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
           <button
             key={index}
             className={`relative aspect-square overflow-hidden rounded-md ${
-              index === mainImage ? "ring-2 ring-[#a8a49e]" : "ring-1 ring-[#e2ded9]"
+              index === mainImage
+                ? "ring-2 ring-[#a8a49e]"
+                : "ring-1 ring-[#e2ded9]"
             }`}
             onClick={() => setMainImage(index)}
           >
@@ -99,5 +110,5 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
         ))}
       </div>
     </div>
-  )
+  );
 }

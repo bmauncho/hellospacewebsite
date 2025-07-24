@@ -16,6 +16,7 @@ import {
 import { toast } from "@/components/ui/use-toast";
 import { Calendar, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { sendConsultationEmail } from "@/app/actions/consultation-email";
 
 export function ConsultationForm() {
   const [formData, setFormData] = useState({
@@ -44,47 +45,32 @@ export function ConsultationForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Basic validation
-    if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.email ||
-      !formData.consultationType ||
-      !formData.preferredDate
-    ) {
-      toast({
-        title: "Missing information",
-        description: "Please fill out all required fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsLoading(true);
 
-    // Simulate API call
     try {
-      // In a real implementation, this would be an API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      setIsSubmitted(true);
-      toast({
-        title: "Consultation scheduled!",
-        description:
-          "Thank you for booking a consultation. We'll contact you shortly to confirm.",
+      const form = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        form.append(key, value);
       });
-    } catch (error) {
-      console.error("Consultation booking error:", error);
+
+      const result = await sendConsultationEmail(form);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        toast({
+          title: "Consultation scheduled!",
+          description:
+            "Thank you for booking a consultation. We'll contact you shortly to confirm.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
