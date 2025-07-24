@@ -47,7 +47,7 @@ export function CuratedFurniture() {
                   "/curated/designer-pendant-light.png?height=600&width=600",
               },
             ].map((item, index) => (
-              <Link key={index} href="/shop" className="group">
+              <Link key={index} href="/Shop" className="group">
                 <div className="overflow-hidden rounded-lg bg-white">
                   <div className="relative aspect-square">
                     <Image
@@ -76,7 +76,7 @@ export function CuratedFurniture() {
           </div>
           <div className="mt-8 text-center">
             <Button asChild variant="accent">
-              <Link href="/shop">Shop All Furniture</Link>
+              <Link href="/Shop">Shop All Furniture</Link>
             </Button>
           </div>
         </div>

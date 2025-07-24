@@ -55,7 +55,7 @@ export default function AboutPage() {
               <div className="grid gap-12 md:grid-cols-2 md:items-center">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
                   <Image
-                    src="/team/Emma.png?height=800&width=640"
+                    src="/Team/Emma.png?height=800&width=640"
                     alt="Emma, Co-founder of Hello Space"
                     fill
                     className="object-cover"
@@ -128,7 +128,7 @@ export default function AboutPage() {
                 </div>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
                   <Image
-                    src="/team/Brenda.png?height=800&width=640"
+                    src="/Team/Brenda.png?height=800&width=640"
                     alt="Brenda, Co-founder of Hello Space"
                     fill
                     className="object-cover"

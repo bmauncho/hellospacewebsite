@@ -35,7 +35,7 @@ export function Team() {
               <div className="overflow-hidden rounded-lg group">
                 <div className="relative aspect-[3/4] w-full">
                   <Image
-                    src="/Team/emma.png?height=600&width=450"
+                    src="/Team/Emma.png?height=600&width=450"
                     alt="Emma, Co-founder of Hello Space"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -54,7 +54,7 @@ export function Team() {
               <div className="overflow-hidden rounded-lg group">
                 <div className="relative aspect-[3/4] w-full">
                   <Image
-                    src="/Team/brenda.png?height=600&width=450"
+                    src="/Team/Brenda.png?height=600&width=450"
                     alt="Brenda, Co-founder of Hello Space"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
