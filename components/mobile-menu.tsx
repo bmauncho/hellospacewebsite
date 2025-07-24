@@ -23,8 +23,7 @@ export function MobileMenu({
   pathname,
   isShopRelatedPage,
 }: MobileMenuProps) {
-
-  const { user} = useAuth();
+  const { user } = useAuth();
   return (
     <div
       className={cn(
@@ -124,7 +123,7 @@ export function MobileMenu({
               className="w-full bg-[#a8a49e] text-white hover:bg-[#8c8880]"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Link href="/consultation">Book Consultation</Link>
+              <Link href="/Consultation">Book Consultation</Link>
             </Button>
           </li>
         </ul>

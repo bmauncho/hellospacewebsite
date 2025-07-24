@@ -81,7 +81,7 @@ export default function AboutPage() {
                   </p>
                   <div className="pt-4">
                     <Link
-                      href="/portfolio"
+                      href="/Portfolio"
                       className="group inline-flex items-center text-sm font-medium text-[#3c3a36]"
                     >
                       View Emma&apos;s Projects
@@ -251,7 +251,7 @@ export default function AboutPage() {
                     variant="accent"
                     className="bg-[#a8a49e] text-white hover:bg-[#8c8880]"
                   >
-                    <Link href="/consultation">Book a Consultation</Link>
+                    <Link href="/Consultation">Book a Consultation</Link>
                   </Button>
                 </div>
               </div>

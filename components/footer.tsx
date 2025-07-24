@@ -11,7 +11,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="/Logo/hello-space-logo.png"
+                src="/logo/hello-space-logo.png"
                 alt="Hello Space Logo"
                 width={40}
                 height={40}
