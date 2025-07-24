@@ -74,18 +74,188 @@ export async function sendConsultationEmail(formData: FormData) {
       to: CONTACT_EMAIL,
       subject: `New Consultation Request from ${data.firstName} ${data.lastName}`,
       html: `
-        <h2>Consultation Booking Details</h2>
-        <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone || "Not provided"}</p>
-        <p><strong>Consultation Type:</strong> ${data.consultationType}</p>
-        <p><strong>Project Type:</strong> ${
-          data.projectType || "Not specified"
-        }</p>
-        <p><strong>Preferred Date:</strong> ${data.preferredDate}</p>
-        <p><strong>Preferred Time:</strong> ${data.preferredTime}</p>
-        <p><strong>Message:</strong></p>
-        <p>${(data.message ?? "").replace(/\n/g, "<br>") || "No message"}</p>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Consultation Booking Details</title>
+          <style>
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+              background-color: #f8f5f2;
+              color: #3c3a36;
+              line-height: 1.6;
+            }
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #ffffff;
+              border: 1px solid #e2ded9;
+            }
+            .header {
+              background-color: #f8f5f2;
+              padding: 30px 40px;
+              text-align: center;
+              border-bottom: 1px solid #e2ded9;
+            }
+            .logo {
+              font-size: 24px;
+              font-weight: bold;
+              color: #161616;
+              margin-bottom: 10px;
+            }
+            .tagline {
+              color: #6b6963;
+              font-size: 14px;
+              margin: 0;
+            }
+            .content {
+              padding: 40px;
+            }
+            .title {
+              color: #161616;
+              font-size: 24px;
+              font-weight: 600;
+              margin: 0 0 30px 0;
+              text-align: center;
+            }
+            .details-grid {
+              background-color: #f8f5f2;
+              border: 1px solid #e2ded9;
+              border-radius: 8px;
+              padding: 30px;
+              margin-bottom: 30px;
+            }
+            .detail-row {
+              display: flex;
+              margin-bottom: 15px;
+              align-items: flex-start;
+            }
+            .detail-row:last-child {
+              margin-bottom: 0;
+            }
+            .detail-label {
+              font-weight: 600;
+              color: #161616;
+              min-width: 140px;
+              margin-right: 15px;
+            }
+            .detail-value {
+              color: #3c3a36;
+              flex: 1;
+            }
+            .message-section {
+              margin-top: 30px;
+            }
+            .message-label {
+              font-weight: 600;
+              color: #161616;
+              margin-bottom: 10px;
+            }
+            .message-content {
+              background-color: #ffffff;
+              border: 1px solid #e2ded9;
+              border-radius: 6px;
+              padding: 20px;
+              color: #3c3a36;
+              font-style: italic;
+            }
+            .footer {
+              background-color: #161616;
+              color: #f9f9f9;
+              padding: 30px 40px;
+              text-align: center;
+              font-size: 14px;
+            }
+            .footer-brand {
+              color: #91623d;
+              font-weight: 600;
+            }
+            .divider {
+              height: 1px;
+              background-color: #e2ded9;
+              margin: 30px 0;
+            }
+            @media only screen and (max-width: 600px) {
+              .container {
+                width: 100% !important;
+              }
+              .header, .content, .footer {
+                padding: 20px !important;
+              }
+              .details-grid {
+                padding: 20px !important;
+              }
+              .detail-row {
+                flex-direction: column;
+              }
+              .detail-label {
+                min-width: auto;
+                margin-right: 0;
+                margin-bottom: 5px;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <div class="logo">Hello Space</div>
+              <p class="tagline">Professional Design & Development Services</p>
+            </div>
+            
+            <div class="content">
+              <h1 class="title">New Consultation Request</h1>
+              
+              <div class="details-grid">
+                <div class="detail-row">
+                  <div class="detail-label">Client Name:</div>
+                  <div class="detail-value">${data.firstName} ${data.lastName}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Email Address:</div>
+                  <div class="detail-value">${data.email}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Phone Number:</div>
+                  <div class="detail-value">${data.phone || "Not provided"}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Consultation Type:</div>
+                  <div class="detail-value">${data.consultationType}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Project Type:</div>
+                  <div class="detail-value">${data.projectType || "Not specified"}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Preferred Date:</div>
+                  <div class="detail-value">${data.preferredDate}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Preferred Time:</div>
+                  <div class="detail-value">${data.preferredTime}</div>
+                </div>
+              </div>
+              
+              <div class="message-section">
+                <div class="message-label">Additional Message:</div>
+                <div class="message-content">
+                  ${(data.message ?? "").replace(/\n/g, "<br>") || "No additional message provided."}
+                </div>
+              </div>
+            </div>
+            
+            <div class="footer">
+              <p>This consultation request was submitted through the <span class="footer-brand">Hello Space</span> website.</p>
+              <p>Please respond to the client within 24 hours to maintain our professional standards.</p>
+            </div>
+          </div>
+        </body>
+        </html>
       `,
       text: `
 Consultation Booking Details
@@ -158,15 +328,216 @@ export async function sendMiniConsultationEmail(formData: FormData) {
       to: CONTACT_EMAIL,
       subject: `Quick Consultation Request from ${data.name}`,
       html: `
-        <h2>Mini Consultation Request</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone || "Not provided"}</p>
-        <p><strong>Service Interested In:</strong> ${data.service}</p>
-        <p><strong>Message:</strong></p>
-        <p>${(data.message ?? "").replace(/\n/g, "<br>") || "No message"}</p>
-        <hr>
-        <p><em>This is a quick consultation request. Please contact the client to schedule a consultation.</em></p>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Quick Consultation Request</title>
+          <style>
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+              background-color: #f8f5f2;
+              color: #3c3a36;
+              line-height: 1.6;
+            }
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #ffffff;
+              border: 1px solid #e2ded9;
+            }
+            .header {
+              background-color: #f8f5f2;
+              padding: 30px 40px;
+              text-align: center;
+              border-bottom: 1px solid #e2ded9;
+            }
+            .logo {
+              font-size: 24px;
+              font-weight: bold;
+              color: #161616;
+              margin-bottom: 10px;
+            }
+            .tagline {
+              color: #6b6963;
+              font-size: 14px;
+              margin: 0;
+            }
+            .content {
+              padding: 40px;
+            }
+            .title {
+              color: #161616;
+              font-size: 24px;
+              font-weight: 600;
+              margin: 0 0 30px 0;
+              text-align: center;
+            }
+            .quick-badge {
+              background-color: #c17c60;
+              color: #ffffff;
+              padding: 6px 12px;
+              border-radius: 20px;
+              font-size: 12px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              display: inline-block;
+              margin-bottom: 20px;
+            }
+            .details-grid {
+              background-color: #f8f5f2;
+              border: 1px solid #e2ded9;
+              border-radius: 8px;
+              padding: 30px;
+              margin-bottom: 30px;
+            }
+            .detail-row {
+              display: flex;
+              margin-bottom: 15px;
+              align-items: flex-start;
+            }
+            .detail-row:last-child {
+              margin-bottom: 0;
+            }
+            .detail-label {
+              font-weight: 600;
+              color: #161616;
+              min-width: 140px;
+              margin-right: 15px;
+            }
+            .detail-value {
+              color: #3c3a36;
+              flex: 1;
+            }
+            .service-highlight {
+              background-color: #91623d;
+              color: #ffffff;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-weight: 600;
+            }
+            .message-section {
+              margin-top: 30px;
+            }
+            .message-label {
+              font-weight: 600;
+              color: #161616;
+              margin-bottom: 10px;
+            }
+            .message-content {
+              background-color: #ffffff;
+              border: 1px solid #e2ded9;
+              border-radius: 6px;
+              padding: 20px;
+              color: #3c3a36;
+              font-style: italic;
+            }
+            .action-note {
+              background-color: #fff3cd;
+              border: 1px solid #ffeaa7;
+              border-radius: 6px;
+              padding: 20px;
+              margin-top: 30px;
+              text-align: center;
+            }
+            .action-note-title {
+              color: #856404;
+              font-weight: 600;
+              margin-bottom: 10px;
+            }
+            .action-note-text {
+              color: #856404;
+              font-size: 14px;
+              margin: 0;
+            }
+            .footer {
+              background-color: #161616;
+              color: #f9f9f9;
+              padding: 30px 40px;
+              text-align: center;
+              font-size: 14px;
+            }
+            .footer-brand {
+              color: #91623d;
+              font-weight: 600;
+            }
+            @media only screen and (max-width: 600px) {
+              .container {
+                width: 100% !important;
+              }
+              .header, .content, .footer {
+                padding: 20px !important;
+              }
+              .details-grid {
+                padding: 20px !important;
+              }
+              .detail-row {
+                flex-direction: column;
+              }
+              .detail-label {
+                min-width: auto;
+                margin-right: 0;
+                margin-bottom: 5px;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <div class="logo">Hello Space</div>
+              <p class="tagline">Professional Design & Development Services</p>
+            </div>
+            
+            <div class="content">
+              <div style="text-align: center;">
+                <div class="quick-badge">Quick Request</div>
+              </div>
+              <h1 class="title">Mini Consultation Request</h1>
+              
+              <div class="details-grid">
+                <div class="detail-row">
+                  <div class="detail-label">Client Name:</div>
+                  <div class="detail-value">${data.name}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Email Address:</div>
+                  <div class="detail-value">${data.email}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Phone Number:</div>
+                  <div class="detail-value">${data.phone || "Not provided"}</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-label">Service Interest:</div>
+                  <div class="detail-value"><span class="service-highlight">${data.service}</span></div>
+                </div>
+              </div>
+              
+              <div class="message-section">
+                <div class="message-label">Additional Message:</div>
+                <div class="message-content">
+                  ${(data.message ?? "").replace(/\n/g, "<br>") || "No additional message provided."}
+                </div>
+              </div>
+              
+              <div class="action-note">
+                <div class="action-note-title">⚡ Quick Action Required</div>
+                <p class="action-note-text">This is a quick consultation request. Please contact the client within 4 hours to schedule a consultation and maintain our rapid response standards.</p>
+              </div>
+            </div>
+            
+            <div class="footer">
+              <p>This quick consultation request was submitted through the <span class="footer-brand">Hello Space</span> website.</p>
+              <p>Prioritize quick responses to maintain client satisfaction and conversion rates.</p>
+            </div>
+          </div>
+        </body>
+        </html>
       `,
       text: `
 Mini Consultation Request
