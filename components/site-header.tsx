@@ -66,7 +66,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e2ded9] bg-[#f8f5f2]/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex px-2 items-center">
           <Image
             src="/logo/hello-space-logo.png"
             alt="Hello Space Logo"

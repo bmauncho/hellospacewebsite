@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/components/ui/use-toast";
-import { Calendar, Loader2 } from "lucide-react";
+import { Calendar, Clock, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { sendConsultationEmail } from "@/app/actions/consultation-email";
 
@@ -27,6 +27,7 @@ export function ConsultationForm() {
     consultationType: "",
     projectType: "",
     preferredDate: "",
+    preferredTime: "",
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -90,6 +91,7 @@ export function ConsultationForm() {
       consultationType: "",
       projectType: "",
       preferredDate: "",
+      preferredTime: "",
       message: "",
     });
     setIsSubmitted(false);
@@ -280,6 +282,27 @@ export function ConsultationForm() {
                   min={new Date().toISOString().split("T")[0]} // Prevent selecting past dates
                 />
                 <Calendar className="absolute right-3 top-2.5 h-4 w-4 text-[#a8a49e] pointer-events-none" />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="preferredTime"
+                className="mb-1 block text-sm font-medium text-[#3c3a36]"
+              >
+                Preferred Time <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <Input
+                  id="preferredTime"
+                  name="preferredTime"
+                  type="time"
+                  value={formData.preferredTime}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-[#e2ded9] bg-white px-3 py-2 text-sm placeholder:text-[#a8a49e] focus:outline-none focus:ring-1 focus:ring-[#a8a49e]"
+                  required
+                  disabled={isLoading}
+                />
+                <Clock className="absolute right-3 top-2.5 h-4 w-4 text-[#a8a49e] pointer-events-none" />
               </div>
             </div>
             <div>
