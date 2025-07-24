@@ -44,7 +44,7 @@ export function CuratedFurniture() {
                 name: "Designer Pendant Light",
                 price: "$325",
                 image:
-                  "/curated/designer-pendant-light.jpg?height=600&width=600",
+                  "/curated/designer-pendant-light.png?height=600&width=600",
               },
             ].map((item, index) => (
               <Link key={index} href="/Shop" className="group">
