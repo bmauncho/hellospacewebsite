@@ -9,12 +9,14 @@ export default function AccountLayout({
 }) {
   return (
     <ProtectedRoute>
-      <div className="container mx-auto py-10">
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="w-full md:w-64 shrink-0">
-            <AccountSidebar />
+      <div className="bg-[#f8f5f2] min-h-screen">
+        <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+            <div className="w-full md:w-64 shrink-0">
+              <AccountSidebar />
+            </div>
+            <div className="flex-1 min-w-0">{children}</div>
           </div>
-          <div className="flex-1">{children}</div>
         </div>
       </div>
     </ProtectedRoute>

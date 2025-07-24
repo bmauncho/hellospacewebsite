@@ -101,8 +101,8 @@ export function SiteHeader() {
                   <User className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <div className="flex items-center justify-start gap-2 p-2">
+              <DropdownMenuContent align="center">
+                <div className="flex items-center justify-center gap-2 p-2">
                   <div className="flex flex-col space-y-1 leading-none">
                     {user.name && <p className="font-medium">{user.name}</p>}
                     {user.email && (
