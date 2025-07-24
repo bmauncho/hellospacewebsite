@@ -38,13 +38,13 @@ export function CuratedFurniture() {
                 name: "Sustainable Coffee Table",
                 price: "$645",
                 image:
-                  "/curated/sustainable-coffee-table.png?height=600&width=600",
+                  "/curated/sustainable-coffee-table.jpg?height=600&width=600",
               },
               {
                 name: "Designer Pendant Light",
                 price: "$325",
                 image:
-                  "/curated/designer-pendant-light.png?height=600&width=600",
+                  "/curated/designer-pendant-light.jpg?height=600&width=600",
               },
             ].map((item, index) => (
               <Link key={index} href="/Shop" className="group">
