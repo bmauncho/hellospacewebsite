@@ -47,17 +47,18 @@ export function MobileMenu({
       {/* Mobile menu */}
       <div
         className={cn(
-          "fixed top-0 right-0 z-[100] w-full max-w-[85vw] sm:max-w-sm bg-background shadow-xl transition-transform duration-300 ease-in-out md:hidden",
+          "fixed top-0 right-0 z-[100] w-full max-w-[85vw] sm:max-w-sm bg-background shadow-xl transition-all duration-300 ease-in-out md:hidden",
+          "min-h-[50vh] max-h-[95vh] h-auto",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
         style={{
-          height: "100vh",
           borderBottomLeftRadius: "1rem",
+          borderTopLeftRadius: "1rem",
         }}
       >
-        <div className="flex h-full flex-col">
+        <div className="flex flex-col">
           {/* Header */}
-          <div className="flex-shrink-0 flex items-center justify-between p-4 sm:p-6 border-b border-[#e2ded9]">
+          <div className="flex-shrink-0 flex items-center justify-between p-3 sm:p-4 border-b border-[#e2ded9]">
             <Link
               href="/"
               className="flex items-center touch-manipulation"
@@ -208,11 +209,11 @@ export function MobileMenu({
             </div>
           </div>
 
-          {/* Footer - Fixed at bottom */}
-          <div className="flex-shrink-0 border-t border-[#e2ded9] bg-background">
+          {/* Footer - Dynamic based on content */}
+          <div className="flex-shrink-0 border-t border-[#e2ded9] bg-background" style={{ borderBottomLeftRadius: "1rem" }}>
             <div
               className={cn(
-                "p-4 sm:p-6 transform transition-all duration-300 ease-in-out",
+                "p-3 sm:p-4 transform transition-all duration-300 ease-in-out",
                 isMenuOpen
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
@@ -222,23 +223,23 @@ export function MobileMenu({
               }}
             >
               {/* Social Icons */}
-              <div className="flex space-x-4 items-center justify-center mb-4">
+              <div className="flex space-x-3 sm:space-x-4 items-center justify-center mb-3">
                 <Button
                   variant="accent"
                   size="icon"
-                  className="text-background hover:text-[#3c3a36] active:text-[#3c3a36] h-10 w-10 sm:h-12 sm:w-12 touch-manipulation"
+                  className="text-background hover:text-[#3c3a36] active:text-[#3c3a36] h-9 w-9 sm:h-10 sm:w-10 touch-manipulation"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-5 w-5 sm:h-6 sm:w-6"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                   >
                     <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -250,19 +251,19 @@ export function MobileMenu({
                 <Button
                   variant="accent"
                   size="icon"
-                  className="text-background hover:text-[#3c3a36] active:text-[#3c3a36] h-10 w-10 sm:h-12 sm:w-12 touch-manipulation"
+                  className="text-background hover:text-[#3c3a36] active:text-[#3c3a36] h-9 w-9 sm:h-10 sm:w-10 touch-manipulation"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-5 w-5 sm:h-6 sm:w-6"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                   >
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                   </svg>
@@ -272,19 +273,19 @@ export function MobileMenu({
                 <Button
                   variant="accent"
                   size="icon"
-                  className="text-background hover:text-[#3c3a36] active:text-[#3c3a36] h-10 w-10 sm:h-12 sm:w-12 touch-manipulation"
+                  className="text-background hover:text-[#3c3a36] active:text-[#3c3a36] h-9 w-9 sm:h-10 sm:w-10 touch-manipulation"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-5 w-5 sm:h-6 sm:w-6"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                   >
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                   </svg>
@@ -293,7 +294,7 @@ export function MobileMenu({
               </div>
 
               {/* Copyright */}
-              <p className="text-center text-xs sm:text-sm text-[#6b6963]">
+              <p className="text-center text-xs text-[#6b6963]">
                 © {new Date().getFullYear()} Hello Space
               </p>
             </div>
