@@ -14,11 +14,15 @@ import { AuthProvider } from "@/contexts/auth-context";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 const LOADING_DURATIONS = {
