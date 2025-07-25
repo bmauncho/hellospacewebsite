@@ -149,7 +149,7 @@ export function TestimonialCarousel() {
 
   return (
     <div
-      className="relative"
+      className="relative w-full"
       ref={carouselRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -157,24 +157,30 @@ export function TestimonialCarousel() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 md:-left-6">
+      {/* Navigation buttons - repositioned for mobile */}
+      <div className="absolute left-0 top-1/2 z-10 -translate-y-1/2 md:-left-6">
         <Button
           variant="outline"
           size="icon"
-          className="h-8 w-8 rounded-full border-[#e2ded9] bg-white/80 backdrop-blur-sm hover:bg-brand-accent hover:text-white hover:border-brand-accent"
+          className="h-8 w-8 rounded-full border-[#e2ded9] bg-white/80 backdrop-blur-sm hover:bg-brand-accent hover:text-white hover:border-brand-accent md:h-10 md:w-10"
           onClick={prevTestimonial}
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
       </div>
-      <div className="flex overflow-hidden">
+
+      {/* Carousel container with proper padding */}
+      <div className="overflow-hidden px-10 md:px-4">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
         >
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
+            <div
+              key={testimonial.id}
+              className="w-full flex-shrink-0 px-1 sm:px-2"
+            >
               <TestimonialCard
                 content={testimonial.content}
                 author={{
@@ -183,22 +189,26 @@ export function TestimonialCarousel() {
                   avatar: testimonial.avatar,
                 }}
                 rating={testimonial.rating}
+                className="h-full mx-auto max-w-none"
               />
             </div>
           ))}
         </div>
       </div>
-      <div className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 md:-right-6">
+
+      <div className="absolute right-0 top-1/2 z-10 -translate-y-1/2 md:-right-6">
         <Button
           variant="outline"
           size="icon"
-          className="h-8 w-8 rounded-full border-[#e2ded9] bg-white/80 backdrop-blur-sm hover:bg-brand-accent hover:text-white hover:border-brand-accent"
+          className="h-8 w-8 rounded-full border-[#e2ded9] bg-white/80 backdrop-blur-sm hover:bg-brand-accent hover:text-white hover:border-brand-accent md:h-10 md:w-10"
           onClick={nextTestimonial}
           aria-label="Next testimonial"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
+
+      {/* Pagination dots */}
       <div className="mt-6 flex justify-center space-x-2">
         {testimonials.map((_, index) => (
           <button
