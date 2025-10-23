@@ -149,7 +149,7 @@ export default function ContactPage() {
                           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                         </svg>
                       </a>
-                      <a
+                      {/* <a
                         href="https://pinterest.com"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -172,7 +172,7 @@ export default function ContactPage() {
                           <path d="M8 2H16C18.2091 2 20 3.79086 20 6V18C20 20.2091 18.2091 22 16 22H8C5.79086 22 4 20.2091 4 18V6C4 3.79086 5.79086 2 8 2Z" />
                           <circle cx="12" cy="10" r="5" />
                         </svg>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>

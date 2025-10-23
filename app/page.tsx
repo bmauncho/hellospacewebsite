@@ -26,7 +26,7 @@ export default function Home() {
         <OurServices />
         <Consultations />
         <ExplorePortfolio />
-        <CuratedFurniture />
+        {/* <CuratedFurniture /> */}
         <Testimonials />
         <LetsWorkTogether />
       </main>

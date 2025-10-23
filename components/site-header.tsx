@@ -51,7 +51,7 @@ export function SiteHeader() {
     { href: "/Services", label: "Services" },
     { href: "/Portfolio", label: "Portfolio" },
     { href: "/Contact", label: "Contact" },
-    { href: "/Shop", label: "Shop" },
+    // { href: "/Shop", label: "Shop" },
   ];
 
   const isShopRelatedPage = () => {
