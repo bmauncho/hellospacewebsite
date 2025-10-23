@@ -1,5 +1,4 @@
 import { Consultations } from "@/components/consultations";
-import { CuratedFurniture } from "@/components/curated-furniture";
 import { ExplorePortfolio } from "@/components/explore-portfolio";
 import { Team } from "@/components/hellospaceteam";
 import { Hero } from "@/components/hero";
