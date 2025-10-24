@@ -27,7 +27,7 @@ export function Team() {
               </p>
               <div className="pt-4">
                 <Button asChild variant="ghost" size="lg">
-                  <Link href="/about">Learn More About Us</Link>
+                  <Link href="/About">Learn More About Us</Link>
                 </Button>
               </div>
             </div>

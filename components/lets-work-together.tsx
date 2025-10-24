@@ -27,15 +27,15 @@ export function LetsWorkTogether() {
               <div className="space-y-3 pt-4">
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-brand-accent" />
-                  <span>123 Design Street, Creative City, 10001</span>
+                  <span>Nairobi Kenya</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-brand-accent" />
-                  <span>(555) 123-4567</span>
+                  <span>+(254)745 270 260</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-brand-accent" />
-                  <span>hello@hellospace.design</span>
+                  <span>spacehello43@gmail.com</span>
                 </div>
               </div>
             </div>

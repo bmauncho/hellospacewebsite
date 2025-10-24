@@ -59,17 +59,15 @@ export default function ContactPage() {
                     <div className="flex items-start space-x-3">
                       <MapPin className="h-5 w-5 text-[#a8a49e]" />
                       <div>
-                        <h3 className="font-medium text-[#3c3a36]">
+                        {/* <h3 className="font-medium text-[#3c3a36]">
                           Visit Our Studio
-                        </h3>
-                        <p className="text-[#6b6963]">
-                          123 Design Street, Creative City, 10001
-                        </p>
+                        </h3> */}
+                        <p className="text-[#6b6963]">Nairobi, Kenya .</p>
                         <p className="text-[#6b6963]">
                           Monday - Friday: 9am - 6pm
                         </p>
                         <p className="text-[#6b6963]">
-                          Saturday: 10am - 4pm (By Appointment)
+                          Saturday & Sunday : By Appointment Only.
                         </p>
                       </div>
                     </div>
@@ -77,16 +75,14 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-[#a8a49e]" />
                       <div>
                         <h3 className="font-medium text-[#3c3a36]">Call Us</h3>
-                        <p className="text-[#6b6963]">(555) 123-4567</p>
+                        <p className="text-[#6b6963]">+(254) 745 270 260</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
                       <Mail className="h-5 w-5 text-[#a8a49e]" />
                       <div>
                         <h3 className="font-medium text-[#3c3a36]">Email Us</h3>
-                        <p className="text-[#6b6963]">
-                          hello@hellospace.design
-                        </p>
+                        <p className="text-[#6b6963]">spacehello43@gmail.com</p>
                       </div>
                     </div>
                   </div>
@@ -97,7 +93,7 @@ export default function ContactPage() {
                     </h3>
                     <div className="mt-4 flex space-x-4">
                       <a
-                        href="https://instagram.com"
+                        href="https://www.instagram.com/_hellospace?igsh=MXZnMjBrZXAwZWJ6bg%3D%3D&utm_source=qr "
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#e2ded9] text-[#6b6963] transition-colors hover:text-[#3c3a36]"
@@ -127,7 +123,7 @@ export default function ContactPage() {
                           <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                         </svg>
                       </a>
-                      <a
+                      {/* <a
                         href="https://facebook.com"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -148,7 +144,7 @@ export default function ContactPage() {
                         >
                           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                         </svg>
-                      </a>
+                      </a> */}
                       {/* <a
                         href="https://pinterest.com"
                         target="_blank"

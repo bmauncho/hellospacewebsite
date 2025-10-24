@@ -118,7 +118,7 @@ export default function AboutPage() {
                   </p>
                   <div className="pt-4">
                     <Link
-                      href="/Shop"
+                      href="/Portfolio"
                       className="group inline-flex items-center text-sm font-medium text-[#3c3a36]"
                     >
                       Explore Our Furniture

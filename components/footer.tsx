@@ -86,14 +86,14 @@ export function Footer() {
                   Portfolio
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link
-                  href="/Shop"
+                  href="https://www.instagram.com/shophellospace?igsh=djdvYmZybmFjaWdr"
                   className="transition-colors hover:text-brand-accent"
                 >
                   Shop
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link
                   href="/Contact"
@@ -119,7 +119,7 @@ export function Footer() {
           <div className="flex justify-center space-x-6 mb-4">
             {/* instagram */}
             <Link
-              href="#"
+              href="https://www.instagram.com/_hellospace?igsh=MXZnMjBrZXAwZWJ6bg%3D%3D&utm_source=qr "
               className="text-muted-foreground hover:text-brand-accent transition-colors"
             >
               <svg
@@ -140,7 +140,7 @@ export function Footer() {
               </svg>
               <span className="sr-only">Instagram</span>
             </Link>
-            {/* facebook */}
+            {/* facebook
             <Link
               href="#"
               className="text-muted-foreground hover:text-brand-accent transition-colors"
@@ -162,7 +162,7 @@ export function Footer() {
               <span className="sr-only">Facebook</span>
             </Link>
             {/* twitter */}
-            <Link
+            {/* <Link
               href="#"
               className="text-muted-foreground hover:text-brand-accent transition-colors"
             >
@@ -181,7 +181,7 @@ export function Footer() {
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
               </svg>
               <span className="sr-only">Twitter</span>
-            </Link>
+            </Link> */}
           </div>
           <p>© {new Date().getFullYear()} Hello Space. All rights reserved.</p>
         </div>

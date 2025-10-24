@@ -43,7 +43,7 @@ export function OurServices() {
               }
               title="Interior Design Consultation"
               description="Our professional interior design consultations provide creative solutions tailored to your space and style preferences."
-              link={{ href: "/services", label: "Learn More" }}
+              link={{ href: "/Services", label: "Learn More" }}
             />
             <FeatureCard
               icon={
@@ -68,7 +68,7 @@ export function OurServices() {
               }
               title="Quality Furniture"
               description="Shop our curated collection of designer furniture that blends style, functionality, and sustainability."
-              link={{ href: "/shop", label: "Shop Now" }}
+              link={{ href: "/Portfolio", label: "Learn More" }}
             />
             <FeatureCard
               icon={
@@ -92,7 +92,7 @@ export function OurServices() {
               }
               title="Project Management"
               description="We handle every aspect of your design project, from concept to completion, ensuring a seamless experience."
-              link={{ href: "/services", label: "Learn More" }}
+              link={{ href: "/Services", label: "Learn More" }}
             />
           </div>
         </div>

@@ -25,7 +25,7 @@ export function Consultations() {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" variant="ghost" className="shadow-lg">
-                <Link href="/consultation">Book Your Free Consultation</Link>
+                <Link href="/Contact">Book Your Free Consultation</Link>
               </Button>
             </div>
           </div>
